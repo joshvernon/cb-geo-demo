@@ -1,0 +1,6 @@
+// Use this function in the design document for your spatial view.
+function (doc) {
+    if (doc.geometry && doc.properties) {
+      emit([doc.geometry], doc.properties);
+    }
+  }
