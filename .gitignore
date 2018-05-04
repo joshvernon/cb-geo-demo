@@ -103,4 +103,3 @@ ENV/
 # project-specific ignores
 .vscode
 *.code-workspace
-images/
