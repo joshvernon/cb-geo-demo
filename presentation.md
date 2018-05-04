@@ -105,3 +105,25 @@ $ pipenv run python load_geojson.py
 ```
 Refresh the Buckets page in the couchbase console and you should now see several thousand features in the `viastops` bucket.
 ![Buckets page after adding features to viastops bucket](/images/viastops-with-features.png)
+
+## Create the spatial view
+![](/images/indexes.png)
+![](/images/views.png)
+![](/images/views-2.png)
+![](/images/create-spatial-view.png)
+![](/images/edit.png)
+![](/images/spatial-index-code-1.png)
+![](/images/spatial-index-code-2.png)
+
+## Perform a spatial query on the view
+[Reference map](https://arcg.is/1CebOf)
+```
+$ curl -g -u yourusername "http://localhost:8092/viastops/_design/dev_main/_spatial/points?stale=false&connection_timeout=60000&skip=0&full_set=true&start_range=[-98.555659,29.509246]&end_range=[-98.551410,29.511178]"
+Enter host password for user 'yourusername':
+{"total_rows":0,"rows":[
+{"id":"91237","key":[[-98.55471617413822,-98.55471617413822],[29.51027820335144,29.51027820335144]],"value":{"FID":2993,"OBJECTID":4993,"STOP_ID":"91237","LOCATION":"HORIZON HILL & CALLAGHAN","ROUTES":"602","FREQUENT":" "},"geometry":{"type":"Point","coordinates":[-98.55471617413822,29.51027820335144]}},
+{"id":"89986","key":[[-98.55445492363533,-98.55445492363533],[29.51036265510136,29.51036265510136]],"value":{"FID":2972,"OBJECTID":4972,"STOP_ID":"89986","LOCATION":"HORIZON HILL & CALLAGHAN","ROUTES":"602","FREQUENT":" "},"geometry":{"type":"Point","coordinates":[-98.55445492363533,29.51036265510136]}},
+{"id":"91227","key":[[-98.55361989096805,-98.55361989096805],[29.51011003032731,29.51011003032731]],"value":{"FID":2990,"OBJECTID":4990,"STOP_ID":"91227","LOCATION":"CALLAGHAN & HORIZON HILL","ROUTES":"602","FREQUENT":" "},"geometry":{"type":"Point","coordinates":[-98.55361989096805,29.51011003032731]}}
+]
+}
+```
