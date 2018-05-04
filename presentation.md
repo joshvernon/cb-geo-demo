@@ -1,4 +1,4 @@
-# Working with geodata in Couchbase - GeoRodeo 2018 lightning talk
+# Working with geodata in Couchbase - ~~GeoRodeo 2018 lightning talk~~
 
 ## Install and configure couchbase in a docker container
 1. Follow the relevant instructions to install and run [docker](https://docs.docker.com/install) for your operating system.
