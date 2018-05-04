@@ -93,6 +93,7 @@ $ curl -s https://opendata.arcgis.com/datasets/02f9703331e2486b84c02f7a1988bf26_
 4. In the Add Data Bucket dialog, enter viastops for the bucket Name. You can leave the default bucket memory quota of 200 MB and the Bucket Type of couchbase. You can leave the Advanced settings as-is, or change them to your liking. Click the "Add Bucket" button.
 
 ![Couchbase console Add Data Bucket dialog with "viastops" entered in the Name field and and memory quota of 200 MB and bucket type of Couchbase](/images/add-bucket-dialog.png)
+
 5. You should now see the new (empty) viastops bucket.
 ![Buckets page after adding new bucket showing empty viastops bucket](/images/new-bucket.png)
 
