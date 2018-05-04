@@ -117,7 +117,7 @@ Refresh the Buckets page in the couchbase console and you should now see several
 ![](/images/spatial-index-code-2.png)
 
 ## Perform a spatial query on the view
-[Reference map](https://arcg.is/1CebOf)
+[Map](https://arcg.is/1CebOf)
 ```
 $ curl -g -u yourusername "http://localhost:8092/viastops/_design/dev_main/_spatial/points?stale=false&connection_timeout=60000&skip=0&full_set=true&start_range=[-98.555659,29.509246]&end_range=[-98.551410,29.511178]"
 Enter host password for user 'yourusername':
