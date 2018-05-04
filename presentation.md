@@ -99,6 +99,7 @@ $ curl -s https://opendata.arcgis.com/datasets/02f9703331e2486b84c02f7a1988bf26_
 
 ## Load the geojson features into the viastops bucket
 We'll use the [load_geojson.py](/load_geojson.py) script to download the VIA stops geojson FeatureCollection (again), parse the FeatureCollection object into individual features, and load each feature as a document into the `viastops` couchbase bucket. We are going to use each stop's `STOP_ID` value as its document key. 
+
 **IMPORTANT NOTE**: You'll need to change the `CB_USER` and `CB_PASSWORD` constants to reference your own couchbase account, which must have the appropriate accesses to the `viastops` bucket.
 ```
 $ pipenv run python load_geojson.py
