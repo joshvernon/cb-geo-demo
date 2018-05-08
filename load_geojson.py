@@ -24,7 +24,6 @@ def upsert_features(bucket, features):
         if not result.success:
             print('Failed to upsert feature {0}'.format(document_id))
 
-
 if __name__ == '__main__':
     features = get_features()
     cluster = Cluster('couchbase://localhost')
