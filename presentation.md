@@ -119,7 +119,7 @@ Refresh the Buckets page in the couchbase console and you should now see several
 ## Perform a spatial query on the view
 [Map](https://arcg.is/1CebOf)
 ```
-$ curl -g -u yourusername "http://localhost:8092/viastops/_design/dev_main/_spatial/points?stale=false&connection_timeout=60000&skip=0&full_set=true&start_range=[-98.555659,29.509246]&end_range=[-98.551410,29.511178]"
+$ curl -g -u yourusername "http://localhost:8092/viastops/_design/dev_main/_spatial/stops?stale=false&connection_timeout=60000&skip=0&full_set=true&start_range=[-98.555659,29.509246]&end_range=[-98.551410,29.511178]"
 Enter host password for user 'yourusername':
 {"total_rows":0,"rows":[
 {"id":"91237","key":[[-98.55471617413822,-98.55471617413822],[29.51027820335144,29.51027820335144]],"value":{"FID":2993,"OBJECTID":4993,"STOP_ID":"91237","LOCATION":"HORIZON HILL & CALLAGHAN","ROUTES":"602","FREQUENT":" "},"geometry":{"type":"Point","coordinates":[-98.55471617413822,29.51027820335144]}},
