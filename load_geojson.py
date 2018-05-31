@@ -1,3 +1,6 @@
+from datetime import datetime
+from time import sleep
+
 import requests
 from couchbase.cluster import Cluster
 from couchbase.cluster import PasswordAuthenticator
@@ -16,13 +19,15 @@ def get_features(url=GEOJSON_URL):
         response.raise_for_status()
 
 def upsert_features(bucket, features):
-    for feature in features:
+    for feature in features[:10]:
         # Get the value of the STOP_ID field,
         # which we'll use as the document key.
         document_id = feature['properties']['STOP_ID']
+        feature['properties']['modified_date'] = int(datetime.now().timestamp()) * 1000
         result = bucket.upsert(document_id, feature)
         if not result.success:
             print('Failed to upsert feature {0}'.format(document_id))
+        sleep(5)
 
 if __name__ == '__main__':
     features = get_features()
