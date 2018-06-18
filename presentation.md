@@ -77,8 +77,7 @@ $ curl -s https://opendata.arcgis.com/datasets/02f9703331e2486b84c02f7a1988bf26_
                 "STOP_ID": "93376"
             },
             "type": "Feature"
-        },
-        ...
+        }
     ],
     "type": "FeatureCollection"
 }
