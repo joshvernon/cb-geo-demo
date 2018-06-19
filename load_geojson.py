@@ -21,7 +21,10 @@ def upsert_features_sequential(bucket, features):
         # Get the value of the STOP_ID field,
         # which we'll use as the document key.
         document_id = feature['properties']['STOP_ID']
-        feature['properties']['modified_date'] = int(datetime.now().timestamp()) * 1000
+        feature['properties']['modified'] = int(datetime.now().timestamp()) * 1000
+        # feature['modified'] = int(datetime.now().timestamp()) * 1000
+        # props_to_remove = ('properties', 'type')
+        # list(map(feature.pop, props_to_remove))
         result = bucket.upsert(document_id, feature)
         if not result.success:
             print('Failed to upsert feature {0}'.format(document_id))
