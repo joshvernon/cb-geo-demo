@@ -2,10 +2,8 @@ from datetime import datetime
 from time import sleep
 
 import requests
-from couchbase.cluster import Cluster
-from couchbase.cluster import PasswordAuthenticator
 
-from secrets3 import CB_USER, CB_PASSWORD
+import cb_utils
 
 GEOJSON_URL = 'https://opendata.arcgis.com/datasets/02f9703331e2486b84c02f7a1988bf26_0.geojson'
 
@@ -18,8 +16,8 @@ def get_features(url=GEOJSON_URL):
     else:
         response.raise_for_status()
 
-def upsert_features(bucket, features):
-    for feature in features[:10]:
+def upsert_features_sequential(bucket, features):
+    for feature in features:
         # Get the value of the STOP_ID field,
         # which we'll use as the document key.
         document_id = feature['properties']['STOP_ID']
@@ -27,13 +25,10 @@ def upsert_features(bucket, features):
         result = bucket.upsert(document_id, feature)
         if not result.success:
             print('Failed to upsert feature {0}'.format(document_id))
-        sleep(5)
+        # sleep(5)
 
 if __name__ == '__main__':
     features = get_features()
-    cluster = Cluster('couchbase://localhost')
-    authenticator = PasswordAuthenticator(CB_USER, CB_PASSWORD)
-    cluster.authenticate(authenticator)
-    bucket = cluster.open_bucket('viastops')
-    upsert_features(bucket, features)
+    bucket = cb_utils.connect()
+    upsert_features_sequential(bucket, features)
     
