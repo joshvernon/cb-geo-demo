@@ -9,7 +9,7 @@ FUNCTION_CONFIGS = {
 }
 
 def run_timeit(function_name, repeat_count, *args,):
-    if function_name not in (FUNCTION_CONFIGS.keys()):
+    if function_name not in FUNCTION_CONFIGS.keys():
         return
 
     # Setup the code to run.
