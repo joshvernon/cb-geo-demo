@@ -111,7 +111,15 @@ Refresh the Buckets page in the couchbase console and you should now see several
 ![](/images/views.png)
 ![](/images/views-2.png)
 ![](/images/create-spatial-view.png)
-![](/images/edit.png)
+![](/images/edit.png)  
+Replace the Spatial Index Code with the following [view function](/view_function) and click Save Changes.
+```javascript
+function (doc) {
+  if (doc.geometry && doc.properties) {
+    emit([doc.geometry], doc.properties);
+  }
+}
+```
 ![](/images/spatial-index-code-1.png)
 ![](/images/spatial-index-code-2.png)
 
