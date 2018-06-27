@@ -1,5 +1,4 @@
 from datetime import datetime
-from time import sleep
 
 import requests
 
@@ -28,7 +27,6 @@ def upsert_features_sequential(bucket, features):
         result = bucket.upsert(document_id, feature)
         if not result.success:
             print('Failed to upsert feature {0}'.format(document_id))
-        # sleep(5)
 
 if __name__ == '__main__':
     features = get_features()
