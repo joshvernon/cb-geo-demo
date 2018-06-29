@@ -124,7 +124,6 @@ function (doc) {
 ![](/images/spatial-index-code-2.png)
 
 ## Perform a spatial query on the view
-[Map](https://arcg.is/1CebOf)
 ```
 $ curl -g -u yourusername "http://localhost:8092/viastops/_design/dev_main/_spatial/stops?stale=false&connection_timeout=60000&skip=0&full_set=true&start_range=[-98.555659,29.509246]&end_range=[-98.551410,29.511178]"
 Enter host password for user 'yourusername':
