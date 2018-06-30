@@ -6,6 +6,8 @@ name = "pypi"
 [dev-packages]
 pylint = "*"
 rope = "*"
+pyproj = "*"
+arcgis = "*"
 
 [packages]
 couchbase = "*"
