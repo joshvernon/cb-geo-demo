@@ -1,12 +1,12 @@
 import timeit
 
-BASE_SETUP_CODE = "from cb_utils import connect;bucket = connect()"
-UFS_SETUP_CODE = "from load_geojson import get_features,"\
-"upsert_features_sequential;{0};features = get_features()".format(BASE_SETUP_CODE)
+BASE_SETUP_CODE = "from utils import connect;bucket = connect()"
+UFS_SETUP_CODE = "from loader import get_features,"\
+"upsert_features;{0};features = get_features()".format(BASE_SETUP_CODE)
 QBB_SETUP_CODE = "from query import query_bounding_box;{0}".format(BASE_SETUP_CODE)
 
 FUNCTION_CONFIGS = {
-    'upsert_features_sequential': UFS_SETUP_CODE,
+    'upsert_features': UFS_SETUP_CODE,
     'query_bounding_box': QBB_SETUP_CODE,
 }
 
@@ -33,7 +33,7 @@ def run_timeit(function_name, repeat_count, *args,):
         print('Trial {0:d}: {1:.7f} s'.format(i, result))
 
 if __name__ == '__main__':
-    run_timeit('upsert_features_sequential', 5, 'bucket', 'features')
+    run_timeit('upsert_features', 5, 'bucket', 'features')
 
     # Bounding box query where bounding box has relatively small area.
     run_timeit('query_bounding_box', 5, 'bucket',

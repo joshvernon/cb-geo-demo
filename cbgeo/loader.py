@@ -2,7 +2,7 @@ from datetime import datetime
 
 import requests
 
-import cb_utils
+from utils import connect
 
 GEOJSON_URL = 'https://opendata.arcgis.com/datasets/02f9703331e2486b84c02f7a1988bf26_0.geojson'
 
@@ -15,7 +15,7 @@ def get_features(url=GEOJSON_URL):
     else:
         response.raise_for_status()
 
-def upsert_features_sequential(bucket, features):
+def upsert_features(bucket, features):
     for feature in features:
         # Get the value of the STOP_ID field,
         # which we'll use as the document key.
@@ -30,6 +30,6 @@ def upsert_features_sequential(bucket, features):
 
 if __name__ == '__main__':
     features = get_features()
-    bucket = cb_utils.connect()
-    upsert_features_sequential(bucket, features)
+    bucket = connect()
+    upsert_features(bucket, features)
     
