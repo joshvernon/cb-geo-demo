@@ -103,3 +103,4 @@ ENV/
 # project-specific ignores
 .vscode
 *.code-workspace
+local_*.py
