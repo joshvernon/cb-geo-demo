@@ -3,7 +3,6 @@ from couchbase.views.params import SpatialQuery
 from utils import connect
         
 def query_bounding_box(bucket, lower_left, upper_right):
-    # raw_result = []
     spatial_query = SpatialQuery(start_range=lower_left, end_range=upper_right)
     view = bucket.query('main', 'stops', use_devmode=True, query=spatial_query)
     raw_result = [(row.geometry, row.value) for row in view]
