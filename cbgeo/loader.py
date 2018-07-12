@@ -2,8 +2,6 @@ from datetime import datetime
 
 import requests
 
-from utils import connect
-
 GEOJSON_URL = 'https://opendata.arcgis.com/datasets/02f9703331e2486b84c02f7a1988bf26_0.geojson'
 
 def get_features(url=GEOJSON_URL):
@@ -27,9 +25,3 @@ def upsert_features(bucket, features):
         result = bucket.upsert(document_id, feature)
         if not result.success:
             print('Failed to upsert feature {0}'.format(document_id))
-
-if __name__ == '__main__':
-    features = get_features()
-    bucket = connect()
-    upsert_features(bucket, features)
-    

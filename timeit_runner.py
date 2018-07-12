@@ -1,9 +1,9 @@
 import timeit
 
-BASE_SETUP_CODE = "from utils import connect;bucket = connect()"
-UFS_SETUP_CODE = "from loader import get_features,"\
+BASE_SETUP_CODE = "from cbgeo.utils import connect;bucket = connect()"
+UFS_SETUP_CODE = "from cbgeo.loader import get_features,"\
 "upsert_features;{0};features = get_features()".format(BASE_SETUP_CODE)
-QBB_SETUP_CODE = "from query import query_bounding_box;{0}".format(BASE_SETUP_CODE)
+QBB_SETUP_CODE = "from cbgeo.query import query_bounding_box;{0}".format(BASE_SETUP_CODE)
 
 FUNCTION_CONFIGS = {
     'upsert_features': UFS_SETUP_CODE,
