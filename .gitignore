@@ -104,3 +104,4 @@ ENV/
 .vscode
 *.code-workspace
 local_*.py
+*.geojson
